@@ -11,10 +11,10 @@ class Airport(models.Model):
 
 
 class Flight(models.Model):
-    origin = models.CharField(
+    origin = models.ForeignKey(
         Airport, on_delete=models.CASCADE, related_name="departures"
     )
-    destination = models.CharField(
+    destination = models.ForeignKey(
         Airport, on_delete=models.CASCADE, related_name="arrivals"
     )
     duration = models.IntegerField()
